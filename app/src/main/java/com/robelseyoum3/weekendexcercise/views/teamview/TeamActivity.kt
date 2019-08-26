@@ -37,7 +37,6 @@ class TeamActivity : AppCompatActivity(), TeamView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_team)
 
-
         presenter.onViewAttached(this)
 
     }

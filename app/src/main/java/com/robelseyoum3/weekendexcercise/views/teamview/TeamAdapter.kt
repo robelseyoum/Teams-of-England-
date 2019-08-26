@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.robelseyoum3.weekendexcercise.R
 import com.robelseyoum3.weekendexcercise.common.inflate
+import com.robelseyoum3.weekendexcercise.common.loadUrl
 import com.robelseyoum3.weekendexcercise.models.teamdetails.TeamsDetails
 import com.robelseyoum3.weekendexcercise.models.teammodels.TeamModel
 import com.squareup.picasso.Picasso
@@ -29,7 +30,10 @@ class TeamAdapter(private val teamModel: TeamModel, private val listener: OnTeam
         holder.tvName.text = teamModel.teams[position].strTeam
         holder.tvLeague.text = teamModel.teams[position].strLeague
         holder.tvstaduim.text = teamModel.teams[position].strStadium
-        Picasso.get().load(teamModel.teams[position].strTeamBadge).into(holder.teamImage)
+        //Picasso.get().load(teamModel.teams[position].strTeamBadge).into(holder.teamImage)
+
+        holder.teamImage.loadUrl(teamModel.teams[position].strTeamBadge)
+
         holder.bind(teamModel.teams[position], listener)
 
     }

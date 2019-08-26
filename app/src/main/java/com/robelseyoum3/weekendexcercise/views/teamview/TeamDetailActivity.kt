@@ -32,7 +32,7 @@ class TeamDetailActivity : AppCompatActivity() {
 
         val teamRequest = RetrofitInstances().retrofitInstances.create(TeamRequest::class.java)
 
-        val call = teamRequest.getTeamDetails(teamID!!.toString())
+        val call = teamRequest.getTeamDetails(teamID.toString())
 
 
         call.enqueue(object : Callback<TeamDetailModel>{
