@@ -13,6 +13,7 @@ import retrofit2.Response
 import android.util.Log
 import android.view.View
 import com.robelseyoum3.weekendexcercise.R
+import com.robelseyoum3.weekendexcercise.common.setBoldAndColorSpannable
 import com.robelseyoum3.weekendexcercise.views.sortview.BubbleActivity
 import com.robelseyoum3.weekendexcercise.views.teamview.TeamActivity
 import kotlinx.android.synthetic.main.activity_main.*
@@ -44,6 +45,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         btn_bubble_sort.setOnClickListener(this)
         btn_team_league.setOnClickListener(this)
+
+
+       // tv_title.setBoldAndColorSpannable(R.title)
+
+
 
     }
 }
