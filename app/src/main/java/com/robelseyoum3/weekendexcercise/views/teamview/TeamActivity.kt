@@ -1,5 +1,6 @@
 package com.robelseyoum3.weekendexcercise.views.teamview
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -44,11 +45,22 @@ class TeamActivity : AppCompatActivity() {
 
             override fun teamDetailsClicked(id: Int) {
                 Log.d("Wow-TEAM-ID", ""+id)
+                sendToSecondActivity(id)
             }
         })
 
         rvList.layoutManager = LinearLayoutManager(this@TeamActivity)
         rvList.adapter = adapter
+    }
+
+
+
+    fun sendToSecondActivity(id: Int){
+
+        intent = Intent(this, TeamDetailActivity::class.java )
+        intent.putExtra(Constants.TEAM_ID, id.toString())
+        startActivity(intent)
+
     }
 
 
