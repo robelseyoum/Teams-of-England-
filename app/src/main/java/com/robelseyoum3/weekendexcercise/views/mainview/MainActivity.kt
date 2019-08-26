@@ -1,4 +1,4 @@
-package com.robelseyoum3.weekendexcercise
+package com.robelseyoum3.weekendexcercise.views.mainview
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,13 +10,20 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import android.util.Log
+import android.view.View
+import com.robelseyoum3.weekendexcercise.R
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), View.OnClickListener {
+
+    override fun onClick(view: View?) {
+
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 
 
         val teamRequest = RetrofitInstances().retrofitInstances.create(TeamRequest::class.java)
