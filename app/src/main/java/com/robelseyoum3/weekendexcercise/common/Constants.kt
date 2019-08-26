@@ -6,8 +6,7 @@ class Constants {
         const val BASE_URL_TEAM = "https://www.thesportsdb.com/api/v1/json/1/"
         const val TEAMVALUE = "English Premier League"
         const val TEAM_ID = "TEAM_ID"
-
-
+        const val INTENT_CALL1 = "NUMBERS"
 
     }
 }

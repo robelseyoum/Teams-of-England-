@@ -12,8 +12,8 @@
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="388dp"
-            android:layout_height="269dp">
+            android:layout_width="383dp"
+            android:layout_height="201dp">
 
         <ImageView
                 android:id="@+id/tv_team_image"
@@ -33,26 +33,43 @@
                 android:layout_width="166dp"
                 android:layout_height="37dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="56dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
+                android:layout_marginTop="24dp"
                 app:layout_constraintStart_toEndOf="@+id/tv_team_image"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp" app:layout_constraintHorizontal_bias="0.405"/>
 
         <TextView
-                android:id="@+id/tv_team_description"
+                android:id="@+id/tv_team_league"
                 app:autoSizeTextType="uniform"
-                android:layout_width="203dp"
-                android:layout_height="173dp"
+                android:layout_width="166dp"
+                android:layout_height="36dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.333"
+                app:layout_constraintHorizontal_bias="0.405"
                 app:layout_constraintStart_toEndOf="@+id/tv_team_image"
                 app:layout_constraintTop_toBottomOf="@+id/tv_team_name"
         />
+        <TextView
+                android:id="@+id/tv_stadium_title"
+                android:layout_width="172dp"
+                android:layout_height="21dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="Stadium Name"
+                app:layout_constraintStart_toEndOf="@+id/tv_team_image" android:layout_marginStart="8dp"
+                app:layout_constraintHorizontal_bias="0.391" android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/tv_team_league"/>
+        <TextView
+                android:id="@+id/tv_stadum"
+                app:autoSizeTextType="uniform"
+                android:layout_width="166dp"
+                android:layout_height="37dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/tv_stadium_title"
+                app:layout_constraintStart_toEndOf="@+id/tv_team_image" android:layout_marginStart="40dp"
+                app:layout_constraintVertical_bias="0.272" app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp" app:layout_constraintHorizontal_bias="0.0"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

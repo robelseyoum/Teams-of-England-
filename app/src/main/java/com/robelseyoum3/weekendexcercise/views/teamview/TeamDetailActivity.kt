@@ -27,12 +27,12 @@ class TeamDetailActivity : AppCompatActivity() {
 
         val teamID = intent.getStringExtra(Constants.TEAM_ID)
 
-        Log.d("Wow-TEAM-ID Detail", teamID)
+       // Log.d("Wow-TEAM-ID Detail", teamID)
 
 
         val teamRequest = RetrofitInstances().retrofitInstances.create(TeamRequest::class.java)
 
-        val call = teamRequest.getTeamDetails(teamID)
+        val call = teamRequest.getTeamDetails(teamID!!.toString())
 
 
         call.enqueue(object : Callback<TeamDetailModel>{
@@ -41,11 +41,11 @@ class TeamDetailActivity : AppCompatActivity() {
 
             override fun onResponse(call: Call<TeamDetailModel>, response: Response<TeamDetailModel>) {
                 val res = response.body()
-                Log.d("TEAM-IIDD", ""+res!!.teams[0].idTeam)
+                //Log.d("TEAM-IIDD", ""+res!!.teams[0].idTeam)
 
                 Picasso.get().load(res!!.teams[0].strTeamJersey).into(tv_image_detail)
-                tv_title_detail.text = res!!.teams[0].strCountry
-                tv_description_detail.text = res!!.teams[0].strDescriptionEN
+                tv_title_detail.text = res.teams[0].strStadiumLocation
+                tv_description_detail.text = res.teams[0].strDescriptionEN
             }
 
         })
