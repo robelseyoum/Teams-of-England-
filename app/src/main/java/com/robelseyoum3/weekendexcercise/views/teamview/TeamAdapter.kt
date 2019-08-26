@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.robelseyoum3.weekendexcercise.R
+import com.robelseyoum3.weekendexcercise.models.teamdetails.TeamsDetails
 import com.robelseyoum3.weekendexcercise.models.teammodels.TeamModel
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_team_row.view.*
@@ -27,7 +28,7 @@ class TeamAdapter(private val teamModel: TeamModel, private val listener: OnTeam
         holder.tvName.text = teamModel.teams[position].strTeam
         holder.tvDescription.text = teamModel.teams[position].strDescriptionEN
         Picasso.get().load(teamModel.teams[position].strTeamBadge).into(holder.teamImage)
-        holder.bind(teamModel, listener)
+        holder.bind(teamModel.teams[position], listener)
 
     }
 
@@ -40,17 +41,19 @@ class TeamViewHolder (view: View) : RecyclerView.ViewHolder(view){
     val tvDescription = view.tv_team_description
     val teamImage = view.tv_team_image
 
-    fun bind(teamID: TeamModel, listener: OnTeamClickListener){
+    fun bind(teamID: TeamsDetails, listener: OnTeamClickListener){
+//        itemView.setOnClickListener {
+//            listener.teamDetailsClicked(teamID.teams[adapterPosition].idTeam)
+//        }
+
         itemView.setOnClickListener {
-            listener.teamDetailsClicked(teamID.teams[adapterPosition].idTeam)
+            listener.teamDetailsClicked(teamID)
         }
     }
 
 
 }
 
-
-
 interface OnTeamClickListener {
-    fun teamDetailsClicked(id: Int)
+    fun teamDetailsClicked(teams: TeamsDetails)
 }

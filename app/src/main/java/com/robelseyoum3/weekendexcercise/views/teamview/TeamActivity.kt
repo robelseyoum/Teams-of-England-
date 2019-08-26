@@ -7,6 +7,7 @@ import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.robelseyoum3.weekendexcercise.R
 import com.robelseyoum3.weekendexcercise.common.Constants
+import com.robelseyoum3.weekendexcercise.models.teamdetails.TeamsDetails
 import com.robelseyoum3.weekendexcercise.models.teammodels.TeamModel
 import com.robelseyoum3.weekendexcercise.networks.teamnetwork.RetrofitInstances
 import com.robelseyoum3.weekendexcercise.networks.teamnetwork.TeamRequest
@@ -32,7 +33,7 @@ class TeamActivity : AppCompatActivity() {
 
             override fun onResponse(call: Call<TeamModel>, response: Response<TeamModel>) {
                 val res = response.body()
-               // Log.d("TEAM-IIDD", ""+res!!.teams[0].idTeam)
+                //Log.d("TEAM-IIDD", ""+res!!.teams[0].idTeam)
                 getTeams(res!!)
             }
 
@@ -43,9 +44,9 @@ class TeamActivity : AppCompatActivity() {
 
         val adapter = TeamAdapter(teamModel, object  : OnTeamClickListener{
 
-            override fun teamDetailsClicked(id: Int) {
-                Log.d("Wow-TEAM-ID", ""+id)
-                sendToSecondActivity(id)
+            override fun teamDetailsClicked(teams: TeamsDetails) {
+               Log.d("Wow-TEAM-ID", ""+teams.strTeam)
+                sendToSecondActivity(teams.idTeam)
             }
         })
 

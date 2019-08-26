@@ -1,5 +1,6 @@
 package com.robelseyoum3.weekendexcercise.networks.teamnetwork
 
+import com.robelseyoum3.weekendexcercise.models.teamdetails.TeamDetailModel
 import com.robelseyoum3.weekendexcercise.models.teamdetails.TeamsDetails
 import com.robelseyoum3.weekendexcercise.models.teammodels.TeamModel
 import retrofit2.Call
@@ -22,7 +23,7 @@ interface TeamRequest {
     //https://www.thesportsdb.com/api/v1/json/1/lookupteam.php?id=133604
 
     @GET("lookupteam.php")
-    fun getTeamDetails(@Query("id") teamID : String): Call<TeamsDetails>
+    fun getTeamDetails(@Query("id") teamID : String): Call<TeamDetailModel>
 
 
 }
