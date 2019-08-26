@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <ProgressBar
+            android:id="@+id/progress_id_second"
+            android:layout_width="137dp"
+            android:layout_height="104dp"
+            android:visibility="gone"
+            android:layout_gravity="center"
+            android:layout_marginTop="200dp"/>
+
+    <TextView
+            android:layout_width="287dp"
+            android:layout_height="101dp"
+            android:id="@+id/tv_title"
+            android:text="BUBBLE SORTING ALGORITHMS"
+            android:textSize="30sp"
+            android:layout_marginTop="80dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+    />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_subtitle"
+            android:textSize="20sp"
+            android:text="The Algorithm Result"
+            android:layout_marginBottom="15dp"
+    />
+
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_alg_result"
+            android:textSize="12sp"
+            android:text="The Algorithm Result:-  "
+            tools:text="sorted numbers display here:-   "
+    />
+
+</LinearLayout>

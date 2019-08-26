@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
             }
 
-            R.id.btn_bubble_sort ->{
+            R.id.btn_bubble_sort -> {
                 intent = Intent(this, BubbleActivity::class.java)
             }
 
@@ -45,21 +45,5 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         btn_bubble_sort.setOnClickListener(this)
         btn_team_league.setOnClickListener(this)
 
-
-        val teamRequest = RetrofitInstances().retrofitInstances.create(TeamRequest::class.java)
-
-        val call = teamRequest.getTeams(Constants.TEAMVALUE)
-
-        call.enqueue(object : Callback<TeamModel>{
-            override fun onFailure(call: Call<TeamModel>, t: Throwable) {
-            }
-
-            override fun onResponse(call: Call<TeamModel>, response: Response<TeamModel>) {
-                val res = response.body()
-                Log.d("TEAM-OUTPUT", res!!.teams[0].strTeam)
-
-            }
-
-        })
     }
 }
