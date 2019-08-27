@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         when(view!!.id){
 
-            R.id.btn_team_league ->{
+            R.id.btn_team_league -> {
                 intent = Intent(this, TeamActivity::class.java)
 
             }
@@ -46,9 +46,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         btn_bubble_sort.setOnClickListener(this)
         btn_team_league.setOnClickListener(this)
 
-
-       // tv_title.setBoldAndColorSpannable(R.title)
-
+        val title: String = "Teams in League and Bubble Sort"
+        tv_title.setBoldAndColorSpannable(title)
 
 
     }

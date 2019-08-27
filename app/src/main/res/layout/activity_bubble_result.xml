@@ -10,8 +10,8 @@
 
     <ProgressBar
             android:id="@+id/progress_id_second"
-            android:layout_width="137dp"
-            android:layout_height="104dp"
+            android:layout_width="142dp"
+            android:layout_height="29dp"
             android:visibility="gone"
             android:layout_gravity="center"
             android:layout_marginTop="200dp"/>
@@ -36,7 +36,6 @@
             android:text="The Algorithm Result"
             android:layout_marginBottom="15dp"
             android:layout_marginLeft="10dp"
-
     />
 
 

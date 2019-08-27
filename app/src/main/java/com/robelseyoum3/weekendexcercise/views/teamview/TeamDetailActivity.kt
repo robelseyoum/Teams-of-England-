@@ -9,50 +9,48 @@ import com.robelseyoum3.weekendexcercise.common.Constants
 import com.robelseyoum3.weekendexcercise.common.enqueue
 import com.robelseyoum3.weekendexcercise.models.teamdetails.TeamDetailModel
 import com.robelseyoum3.weekendexcercise.models.teamdetails.TeamsDetails
+import com.robelseyoum3.weekendexcercise.models.teammodels.TeamModel
 import com.robelseyoum3.weekendexcercise.models.teammodels.Teams
 import com.robelseyoum3.weekendexcercise.networks.teamnetwork.RetrofitInstances
 import com.robelseyoum3.weekendexcercise.networks.teamnetwork.TeamRequest
+import com.robelseyoum3.weekendexcercise.presenter.TeamDetailPresenter
+import com.robelseyoum3.weekendexcercise.presenter.TeamDetailView
+import com.robelseyoum3.weekendexcercise.presenter.TeamPresenter
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.activity_team.*
 import kotlinx.android.synthetic.main.activity_team_detail.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class TeamDetailActivity : AppCompatActivity() {
+class TeamDetailActivity : AppCompatActivity(), TeamDetailView {
+    override fun getTeamId(): String {
+        return intent.getStringExtra(Constants.TEAM_ID)
+    }
+
+    val presenter: TeamDetailPresenter = TeamDetailPresenter()
+
+    override fun showLoading() {
+       progress_id_details.visibility = View.VISIBLE
+    }
+
+    override fun showTeamLeague(teamDetailModel: TeamDetailModel) {
+
+        progress_id_details.visibility = android.view.View.GONE
+
+        Picasso.get().load(teamDetailModel!!.teams[0].strTeamJersey).into(tv_image_detail)
+        tv_title_detail.text = teamDetailModel.teams[0].strStadiumLocation
+        tv_description_detail.text = teamDetailModel.teams[0].strDescriptionEN
+
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_team_detail)
 
-        var intent = intent
+        presenter.onViewAttached(this)
 
-        val teamID = intent.getStringExtra(Constants.TEAM_ID)
-
-       // Log.d("Wow-TEAM-ID Detail", teamID)
-
-        progress_id_details.visibility = View.VISIBLE
-
-
-
-        val teamRequest = RetrofitInstances().retrofitInstances.create(TeamRequest::class.java)
-
-        val call = teamRequest.getTeamDetails(teamID!!.toString())
-
-
-        call.enqueue {
-            onResponse = {
-                teamDetailModel -> val res = teamDetailModel.body()
-                progress_id_details.visibility = View.GONE
-
-                Picasso.get().load(res!!.teams[0].strTeamJersey).into(tv_image_detail)
-                tv_title_detail.text = res.teams[0].strStadiumLocation
-                tv_description_detail.text = res.teams[0].strDescriptionEN
-            }
-            onFailure = {
-                    error -> Log.d("Fail", error!!.message)
-            }
-        }
 
 /*
         call.enqueue(object : Callback<TeamDetailModel>{
@@ -73,4 +71,6 @@ class TeamDetailActivity : AppCompatActivity() {
         })  */
 
     }
+
+
 }
