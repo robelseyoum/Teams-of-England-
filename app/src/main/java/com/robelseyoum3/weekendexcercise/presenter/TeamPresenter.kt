@@ -8,25 +8,6 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-/*
-/*
-        val movieRequest = RetrofitInstances().retrofitInstances.create(MovieRequest::class.java)
-
-        val call = movieRequest.getMoviesPopular(Constants.API_KEY)
-
-        call.enqueue {
-            onResponse = {
-                  moviePopularModel -> val res = moviePopularModel.body()
-                getTopMoviesList(res!!)
-            }
-
-            onFailure = {
-                    error -> Log.d("Fail", error!!.message)
-            }
-        }
-
-*/
- */
 
 class TeamPresenter: BasePresenter<TeamView>(){
 
