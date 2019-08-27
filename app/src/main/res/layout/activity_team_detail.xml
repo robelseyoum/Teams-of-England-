@@ -7,6 +7,19 @@
         android:layout_height="match_parent"
         tools:context=".views.teamview.TeamDetailActivity">
 
+
+    <ProgressBar
+            android:id="@+id/progress_id_details"
+            android:layout_width="142dp"
+            android:layout_height="29dp"
+            android:visibility="gone"
+            android:layout_gravity="center"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.488" android:layout_marginBottom="8dp"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"/>
+
     <ImageView
             android:id="@+id/tv_image_detail"
             android:layout_width="279dp"

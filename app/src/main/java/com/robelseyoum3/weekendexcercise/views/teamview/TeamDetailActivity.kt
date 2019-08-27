@@ -3,8 +3,10 @@ package com.robelseyoum3.weekendexcercise.views.teamview
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import com.robelseyoum3.weekendexcercise.R
 import com.robelseyoum3.weekendexcercise.common.Constants
+import com.robelseyoum3.weekendexcercise.common.enqueue
 import com.robelseyoum3.weekendexcercise.models.teamdetails.TeamDetailModel
 import com.robelseyoum3.weekendexcercise.models.teamdetails.TeamsDetails
 import com.robelseyoum3.weekendexcercise.models.teammodels.Teams
@@ -29,12 +31,30 @@ class TeamDetailActivity : AppCompatActivity() {
 
        // Log.d("Wow-TEAM-ID Detail", teamID)
 
+        progress_id_details.visibility = View.VISIBLE
+
+
 
         val teamRequest = RetrofitInstances().retrofitInstances.create(TeamRequest::class.java)
 
         val call = teamRequest.getTeamDetails(teamID!!.toString())
 
 
+        call.enqueue {
+            onResponse = {
+                teamDetailModel -> val res = teamDetailModel.body()
+                progress_id_details.visibility = View.GONE
+
+                Picasso.get().load(res!!.teams[0].strTeamJersey).into(tv_image_detail)
+                tv_title_detail.text = res.teams[0].strStadiumLocation
+                tv_description_detail.text = res.teams[0].strDescriptionEN
+            }
+            onFailure = {
+                    error -> Log.d("Fail", error!!.message)
+            }
+        }
+
+/*
         call.enqueue(object : Callback<TeamDetailModel>{
             override fun onFailure(call: Call<TeamDetailModel>, t: Throwable) {
             }
@@ -43,12 +63,14 @@ class TeamDetailActivity : AppCompatActivity() {
                 val res = response.body()
                 //Log.d("TEAM-IIDD", ""+res!!.teams[0].idTeam)
 
+                progress_id_details.visibility = View.GONE
+
                 Picasso.get().load(res!!.teams[0].strTeamJersey).into(tv_image_detail)
                 tv_title_detail.text = res.teams[0].strStadiumLocation
                 tv_description_detail.text = res.teams[0].strDescriptionEN
             }
 
-        })
+        })  */
 
     }
 }
