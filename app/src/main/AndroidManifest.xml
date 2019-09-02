@@ -19,6 +19,7 @@
         </activity>
         <activity android:name=".views.sortview.BubbleActivity">
         </activity>
+
         <activity android:name=".views.mainview.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -26,6 +27,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>

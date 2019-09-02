@@ -53,6 +53,8 @@ class TeamViewHolder (view: View) : RecyclerView.ViewHolder(view){
     val tvstaduim = view.tv_stadum
 
     fun bind(teamID: TeamsDetails, listener: OnTeamClickListener){
+
+
 //        itemView.setOnClickListener {
 //            listener.teamDetailsClicked(teamID.teams[adapterPosition].idTeam)
 //        }
